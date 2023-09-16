@@ -3,7 +3,7 @@ import { notFound } from "next/navigation"
 export const dynamicParams = true
 
 export async function generateStaticParams () {
-    const res = await fetch ('http://localhost:4000/tickets')
+    const res = await fetch ('http://127.0.0.1:4000/tickets')
 
     const tickets = await res.json()
     return tickets.map ((ticket) => ({
@@ -15,7 +15,7 @@ async function getTicket (id) {
 
     await new Promise(resolve => setTimeout(resolve, 3000))
     
-    const res = await fetch ('http://localhost:4000/tickets/' + id, {
+    const res = await fetch ('http://127.0.0.1:4000/tickets/' + id, {
         next: {
             revalidate: 60
         }
