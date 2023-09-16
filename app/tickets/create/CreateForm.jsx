@@ -16,7 +16,7 @@ export default function CreateForm() {
     
         const newTicket = { title, body, priority, user_email: 'mario@ticketservice.io' }
     
-        const res = await fetch('http://localhost:4000/tickets', {
+        const res = await fetch('https://json-server-seven-flame.vercel.app/tickets', {
           method: "POST",
           headers: {"Content-Type": "application/json"},
           body: JSON.stringify(newTicket)
